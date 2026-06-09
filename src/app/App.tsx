@@ -30,7 +30,7 @@ export default function App() {
             {/* Text column */}
             <div>
               <p className="text-xs tracking-[0.25em] uppercase text-accent mb-6" style={{ fontFamily: "'Nunito', sans-serif", color: "var(--accent)" }}>
-                Graduation Weekend · June 2026
+                Graduation Weekend · June 12th - 14th 2026
               </p>
               <h1
                 className="text-foreground mb-6 leading-tight"
