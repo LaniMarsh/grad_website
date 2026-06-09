@@ -22,7 +22,7 @@ const events: GradEvent[] = [
     time: "TBD",
     location: "Kiler Ridge Olive Farm",
     duration: "2 hr",
-    categories: ["optional"],
+    categories: ["optional", "family"],
     description: "Enjoy a tasting of local olive oils",
   },
   {
@@ -32,7 +32,7 @@ const events: GradEvent[] = [
     time: "7:45 PM",
     location: "Etto Pasta @ Tin City",
     duration: "2.5 hrs",
-    categories: ["optional"],
+    categories: ["optional", "family"],
     description: "Dinner reservation at Etto Pasta in Tin City",
   },
   {
@@ -52,7 +52,7 @@ const events: GradEvent[] = [
     time: "9:00 AM",
     location: "the Airbnb",
     duration: "1.5 hrs",
-    categories: ["optional"],
+    categories: ["optional", "family"],
     description: "Dad will be cooking us breakfast so we can revive after the bar crawl. All are welcome, but let us know if you want to join so we can plan food accordingly.",
   },
   {
@@ -62,7 +62,7 @@ const events: GradEvent[] = [
     time: "3:00 PM",
     location: "Spanos Stadium",
     duration: "4 hrs",
-    categories: ["required"],
+    categories: ["required", "family"],
     description: "The main event! The ceremony will be held at Spanos Stadium. Doors open at 3:00 PM, and the ceremony starts at 4:30 PM sharp. Please arrive early to find seating together and in the shade. Graduates can leave as soon as their name is called so meet me outside after I walk the stage.",
   },
   {
@@ -82,7 +82,7 @@ const events: GradEvent[] = [
     time: "9:30 AM",
     location: "Margies Dinner in Paso Robles",
     duration: "1.5 hrs",
-    categories: ["optional"],
+    categories: ["optional", "family"],
     description: "Time to eat!",
   },
   {
