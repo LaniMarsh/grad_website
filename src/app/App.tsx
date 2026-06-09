@@ -9,6 +9,7 @@ const ROWAN_PHOTO = new URL("../../IMG_9389.JPG", import.meta.url).href;
 
 export default function App() {
   const [photoError, setPhotoError] = useState(false);
+  const [activePage, setActivePage] = useState<"home" | "grad-info">("home");
 
   return (
     <div
@@ -23,10 +24,55 @@ export default function App() {
         }}
       />
 
-      {/* Hero — Bio + Photo */}
-      <section id="bio" className="relative z-10 px-6 py-24 md:py-32">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-[1fr_auto] gap-16 items-center">
+      {/* Page header */}
+      <header className="relative z-10 border-b border-border bg-background/90 backdrop-blur-sm">
+        <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
+          <div>
+            <span className="text-sm font-semibold tracking-[0.25em] uppercase text-muted-foreground" style={{ fontFamily: "'Nunito', sans-serif" }}>
+              Graduation Weekend
+            </span>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              onClick={() => setActivePage("home")}
+              className={`rounded-full px-4 py-2 text-sm transition-all ${
+                activePage === "home"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card border border-border text-muted-foreground hover:bg-muted"
+              }`}
+              style={{ fontFamily: "'Nunito', sans-serif" }}
+            >
+              Home
+            </button>
+            <button
+              onClick={() => setActivePage("grad-info")}
+              className={`rounded-full px-4 py-2 text-sm transition-all ${
+                activePage === "grad-info"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card border border-border text-muted-foreground hover:bg-muted"
+              }`}
+              style={{ fontFamily: "'Nunito', sans-serif" }}
+            >
+              Graduation Info
+            </button>
+            <a
+              href="https://photos.app.goo.gl/RQ9Ee6q7JRvL1s146"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="rounded-full px-4 py-2 text-sm transition-all bg-primary text-primary-foreground"
+              style={{ fontFamily: "'Nunito', sans-serif" }}
+            >
+              Upload Photos
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {activePage === "home" ? (
+        <>
+          <section id="hero" className="relative z-10 py-20 px-6 bg-background">
+            <div className="max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-[1fr_auto] gap-16 items-center">
 
             {/* Text column */}
             <div>
@@ -189,6 +235,96 @@ export default function App() {
           </a>
         </div>
       </section>
+        </>
+      ) : (
+        <section id="grad-info" className="relative z-10 py-20 px-6 bg-background border-t border-border">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3" style={{ fontFamily: "'Nunito', sans-serif" }}>
+                Graduation Info
+              </p>
+              <h2 className="text-foreground mb-4" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}>
+                All the details you need for the weekend
+              </h2>
+              <p className="text-muted-foreground max-w-3xl mx-auto" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                Read the schedule, location details, and important graduation day notes in one place.
+              </p>
+              <p className="text-muted-foreground max-w-3xl mx-auto mt-4" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                For more information, see <a href="https://commencement.calpoly.edu/" target="_blank" rel="noreferrer noopener" className="underline hover:text-foreground">Cal Poly commencement</a>.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
+                <h3 className="text-foreground mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Ceremony Details
+                </h3>
+                <p className="text-muted-foreground mb-2" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                  Date: June 13, 2026
+                </p>
+                <p className="text-muted-foreground mb-2" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                  Location: Spanos Stadium, Cal Poly San Luis Obispo
+                </p>
+                <p className="text-muted-foreground" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                  Doors open at 3:00 PM and the ceremony begins at 4:30 PM. Please arrive early to secure seating with the group.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
+                <h3 className="text-foreground mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  What to bring
+                </h3>
+                <p className="text-muted-foreground mb-2" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                  Water, sun protection, and a small bag for essentials.
+                </p>
+                <p className="text-muted-foreground" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                  Reusable water bottles are permitted but must be emptied before entering the stadium. Unopened, factory-sealed water bottles are also allowed.
+                </p>
+              </div>
+            </div>
+            <div className="mt-8 rounded-3xl border border-border bg-card p-6 shadow-sm">
+              <h3 className="text-foreground mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Graduation Weekend Notes
+              </h3>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                <li>Arrive early for group seating and shade.</li>
+                <li>Graduates will meet outside after the ceremony once names are called.</li>
+                <li>RSVP by June 10th so we can organize dinner and family plans.</li>
+                <li>Share your photos through the upload page to keep memories together.</li>
+              </ul>
+            </div>
+            <div className="mt-8 rounded-3xl border border-border bg-card p-6 shadow-sm">
+              <h3 className="text-foreground mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Parking & Accessibility
+              </h3>
+              <p className="text-muted-foreground mb-4" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                Accessible parking is available in the following locations:
+              </p>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                <li>
+                  <a href="https://emclick.imodules.com/ls/click?upn=u001.QrelzM8UB-2FBr6BAKvaFN8ixeVdvoXRomaox9RZ5JFrJBHBsyT6obIZvdMkSjnjNoHykFBoGH7vXvVwInrt431sVm8MBNXI3mGeFaitSE9tRLW0senk-2Fa2KRbSBPQnoUlGIg8-2Bs1u-2BNk-2Fip9GLhrtyg-3D-3D09K8_PKcFXsnzduNOkTk1M1BuFUByZHHWU-2F54tbuTgKrwms16O6ir3ygwsBykWywpYdPnlDwoTxwmsUUCSDVttSaevk9FZCkNNE-2Bhf1XNhC-2BaQ1J00Zhlh5N-2BNe8mHw-2F-2FDTLeQRuExWtNHvRFkq5TEwF-2Bgu0EDyhaULm5v53kcxR0TTXupTS1UrYsKN-2BHDrr57uDEavcqlMkFCRSqdb6GKDDEjIXrz9Csjg-2FwqzWNSlnLmKVPTSOyHEpC5amvvz3-2FmTbThT1pxoD8NIVNE2F8SOr60IxC86OKRGNXNnVTVk7As72kK-2B4fKQ9t3ZJReR8F7mXAKBWQBBKmCHil6X-2BHnd47CWcZULN526tNTB2sgl8bAvoxkMzKDU7-2FhO374-2BtcChidIYGrIRzIYN-2B0zEFELduP2rZ-2BMXZtzr2K4xqgRqqMxZPrlt3hE58LBhE1ossG8forIAW4Nkx93bRPGZ-2BhnNh4wmh4RxxjtRGGx7NHitUnclKMMd9VR5FSZxZ6fFuSmQNY" target="_blank" rel="noreferrer noopener" className="underline hover:text-foreground">
+                    Lot H2a
+                  </a>
+                </li>
+                <li>
+                  <a href="https://emclick.imodules.com/ls/click?upn=u001.QrelzM8UB-2FBr6BAKvaFN8ixeVdvoXRomaox9RZ5JFrJBHBsyT6obIZvdMkSjnjNoHykFBoGH7vXvVwInrt431r2nhxOI8-2FF7Xfkqqxudr9WA-2FBPU-2FlKPwYsAXeST8JuFqTlFYTy7SS0XGDxHd8f5TA-3D-3D0Wea_PKcFXsnzduNOkTk1M1BuFUByZHHWU-2F54tbuTgKrwms16O6ir3ygwsBykWywpYdPnlDwoTxwmsUUCSDVttSaevk9FZCkNNE-2Bhf1XNhC-2BaQ1J00Zhlh5N-2BNe8mHw-2F-2FDTLeQRuExWtNHvRFkq5TEwF-2Bgu0EDyhaULm5v53kcxR0TTXupTS1UrYsKN-2BHDrr57uDEavcqlMkFCRSqdb6GKDDEjIXrz9Csjg-2FwqzWNSlnLmKVPTSOyHEpC5amvvz3-2FmTbThT1pxoD8NIVNE2F8SOr60IxC86OKRGNXNnVTVk7As72kK-2B4fKQ9t3ZJReR8F7mXAKBWQBBKmCHil6X-2BHnd47CWcZULN526tNTB2sgl8bAvoxkMzKDU7-2FhO374-2BtcChidk-2FMDhptem5RO2VQ967Ml2a7qoxBQlFLv2XObHu1haBQQkN8T13Ew3x37yRKRbKwedtj6d2dABSMGyN7ZCwbmyOP-2B4W0yjri96UKodSi5Ny264J-2BZKRBWAo9rSXp-2Bv-2Fbf" target="_blank" rel="noreferrer noopener" className="underline hover:text-foreground">
+                    Lot C7
+                  </a>
+                </li>
+                <li>
+                  <a href="https://emclick.imodules.com/ls/click?upn=u001.QrelzM8UB-2FBr6BAKvaFN8ixeVdvoXRomaox9RZ5JFrJBHBsyT6obIZvdMkSjnjNoHykFBoGH7vXvVwInrt431jl0WvB9FfXukiKbO-2B2kVn-2FgrkCIyB6kwHmH70wo-2BzLMJTSL8a-2F2CY-2BVEhsEcyh6Rg-3D-3Dlomv_PKcFXsnzduNOkTk1M1BuFUByZHHWU-2F54tbuTgKrwms16O6ir3ygwsBykWywpYdPnlDwoTxwmsUUCSDVttSaevk9FZCkNNE-2Bhf1XNhC-2BaQ1J00Zhlh5N-2BNe8mHw-2F-2FDTLeQRuExWtNHvRFkq5TEwF-2Bgu0EDyhaULm5v53kcxR0TTXupTS1UrYsKN-2BHDrr57uDEavcqlMkFCRSqdb6GKDDEjIXrz9Csjg-2FwqzWNSlnLmKVPTSOyHEpC5amvvz3-2FmTbThT1pxoD8NIVNE2F8SOr60IxC86OKRGNXNnVTVk7As72kK-2B4fKQ9t3ZJReR8F7mXAKBWQBBKmCHil6X-2BHnd47CWcZULN526tNTB2sgl8bAvoxkMzKDU7-2FhO374-2BtcChidH5cQXTxKn-2FlclK4bU8LLWu8CPWV2drs1-2FqNujEaxm-2F7Aq8ABYdXom8m-2FFdm2L1bT6TITN-2BESouxuyZtr7GnPM7mJDZJsG-2Fieq1SZmH30qNg0BT-2BoacZQ2OEQ6-2FllnPS-2F" target="_blank" rel="noreferrer noopener" className="underline hover:text-foreground">
+                    Grand Avenue Parking Structure
+                  </a>
+                </li>
+              </ul>
+              <p className="text-muted-foreground mt-4" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                We recommend the Grand Avenue Parking Structure for its ample parking and convenient shuttle access.
+              </p>
+              <p className="text-muted-foreground mt-3" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+                Guests should bring wheelchairs or other mobility assistance devices if needed. Valid ADA placards are required for designated ADA parking spaces in mobility-impaired parking areas.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-border px-6 py-8 text-center">

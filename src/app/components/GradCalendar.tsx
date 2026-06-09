@@ -69,7 +69,7 @@ const events: GradEvent[] = [
     id: "6",
     title: "Family Celebration Dinner",
     day: "Saturday",
-    time: "7:45 PM",
+    time: "8:00 PM",
     location: "Cool Hand Luke's in Santa Maria",
     duration: "2.5 hrs",
     categories: ["family"],
@@ -137,6 +137,26 @@ const categoryConfig = {
 };
 
 const days = ["Friday", "Saturday", "Sunday"] as const;
+
+function formatDescription(text: string) {
+  const parts = text.split(/(https?:\/\/[^\s]+)/g);
+  return parts.map((part, index) => {
+    if (/^https?:\/\//.test(part)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="underline hover:text-foreground"
+        >
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+}
 
 export function GradCalendar() {
   const [activeDay, setActiveDay] = useState<"Friday" | "Saturday" | "Sunday">("Friday");
@@ -256,7 +276,7 @@ export function GradCalendar() {
                       {event.title}
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-3" style={{ fontFamily: "'Nunito', sans-serif" }}>
-                      {event.description}
+                      {formatDescription(event.description)}
                     </p>
                     <div className="flex flex-wrap gap-4 text-sm text-muted-foreground" style={{ fontFamily: "'Nunito', sans-serif" }}>
                       <span className="flex items-center gap-1.5">
