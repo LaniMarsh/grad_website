@@ -16,6 +16,16 @@ interface GradEvent {
 
 const events: GradEvent[] = [
   {
+    id: "9",
+    title: "Mom needs coffee",
+    day: "Friday",
+    time: "9:00 AM",
+    location: "Nautical Bean in SLO",
+    duration: "1 hr",
+    categories: ["optional", "family"],
+    description: "This is Lani's favorite coffee shop because of their Mexican Mocha",
+  },
+  {
     id: "1",
     title: "Olive Oil Tasting",
     day: "Friday",
