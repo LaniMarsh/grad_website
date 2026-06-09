@@ -163,6 +163,33 @@ export default function App() {
         </div>
       </section>
 
+      {/* Photo Upload Section */}
+      <section id="photos" className="relative z-10 py-20 px-6 bg-background border-t border-border">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3" style={{ fontFamily: "'Nunito', sans-serif" }}>
+            Share Photos
+          </p>
+          <h2
+            className="text-foreground mb-4"
+            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
+          >
+            Upload your graduation photos
+          </h2>
+          <p className="text-muted-foreground mb-8 leading-relaxed" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+            Please add any photos you'd like to share to our Google Photos album.
+          </p>
+          <a
+            href="https://photos.app.goo.gl/RQ9Ee6q7JRvL1s146"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm transition-all hover:opacity-90 active:scale-95 cursor-pointer"
+            style={{ fontFamily: "'Nunito', sans-serif" }}
+          >
+            Upload Photos
+          </a>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="relative z-10 border-t border-border px-6 py-8 text-center">
         <div className="max-w-2xl mx-auto flex flex-col items-center gap-6">
