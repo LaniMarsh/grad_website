@@ -5,6 +5,7 @@ import { GraduationCap, Camera, ChevronDown } from "lucide-react";
 {/* MARKER-MAKE-KIT-INVOKED */}
 
 const GRAD_PHOTO = new URL("../../TruVUE_MelanieMarsh_Final-49.jpeg", import.meta.url).href;
+const ROWAN_PHOTO = new URL("../../IMG_9389.JPG", import.meta.url).href;
 
 export default function App() {
   const [photoError, setPhotoError] = useState(false);
@@ -164,9 +165,23 @@ export default function App() {
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-border px-6 py-8 text-center">
-        <p className="text-xs text-muted-foreground" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
-          Made with love · Lani Marsh · Class of 2026
-        </p>
+        <div className="max-w-2xl mx-auto flex flex-col items-center gap-6">
+          <div className="w-32 h-40 rounded-lg overflow-hidden shadow-md">
+            <img
+              src={ROWAN_PHOTO}
+              alt="Rowan graduation photo"
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+          <div>
+            <p className="text-sm text-muted-foreground mb-2" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+              This degree was brought to me by Rowan
+            </p>
+            <p className="text-xs text-muted-foreground" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
+              Lani Marsh · Class of 2026
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );
