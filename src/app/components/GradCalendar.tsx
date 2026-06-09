@@ -10,7 +10,7 @@ interface GradEvent {
   time: string;
   location: string;
   duration: string;
-  category: EventCategory;
+  categories: EventCategory[];
   description: string;
 }
 
@@ -22,7 +22,7 @@ const events: GradEvent[] = [
     time: "TBD",
     location: "Kiler Ridge Olive Farm",
     duration: "2 hr",
-    category: "optional",
+    categories: ["optional"],
     description: "Enjoy a tasting of local olive oils",
   },
   {
@@ -32,7 +32,7 @@ const events: GradEvent[] = [
     time: "7:45 PM",
     location: "Etto Pasta @ Tin City",
     duration: "2.5 hrs",
-    category: "optional",
+    categories: ["optional"],
     description: "Dinner reservation at Etto Pasta in Tin City",
   },
   {
@@ -42,7 +42,7 @@ const events: GradEvent[] = [
     time: "6:00 AM",
     location: "The Mark",
     duration: "Till we drop",
-    category: "party people",
+    categories: ["party people"],
     description: "As Cal Poly tradition goes, we'll be hitting up the bars early Saturday morning. First stop is The Mark at 6:00 AM",
   },
   {
@@ -52,7 +52,7 @@ const events: GradEvent[] = [
     time: "9:00 AM",
     location: "the Airbnb",
     duration: "1.5 hrs",
-    category: "optional",
+    categories: ["optional"],
     description: "Dad will be cooking us breakfast so we can revive after the bar crawl. All are welcome, but let us know if you want to join so we can plan food accordingly.",
   },
   {
@@ -62,7 +62,7 @@ const events: GradEvent[] = [
     time: "3:00 PM",
     location: "Spanos Stadium",
     duration: "4 hrs",
-    category: "required",
+    categories: ["required"],
     description: "The main event! The ceremony will be held at Spanos Stadium. Doors open at 3:00 PM, and the ceremony starts at 4:30 PM sharp. Please arrive early to find seating together and in the shade. Graduates can leave as soon as their name is called so meet me outside after I walk the stage.",
   },
   {
@@ -72,7 +72,7 @@ const events: GradEvent[] = [
     time: "7:45 PM",
     location: "Cool Hand Luke's in Santa Maria",
     duration: "2.5 hrs",
-    category: "family",
+    categories: ["family"],
     description: "Private reservation for family.",
   },
   {
@@ -82,7 +82,7 @@ const events: GradEvent[] = [
     time: "9:30 AM",
     location: "Margies Dinner in Paso Robles",
     duration: "1.5 hrs",
-    category: "optional",
+    categories: ["optional"],
     description: "Time to eat!",
   },
   {
@@ -92,7 +92,7 @@ const events: GradEvent[] = [
     time: "4:00 PM",
     location: "Croma Vera Wines",
     duration: "5 hrs",
-    category: "required",
+    categories: ["required", "party people"],
     description: "Lets celebrate! Come by for wines, food, and dancing. RSVP here: https://partiful.com/e/PzLCmxsp1pRUcugMlXk7?",
   },
 ];
@@ -143,7 +143,7 @@ export function GradCalendar() {
   const [activeFilter, setActiveFilter] = useState<EventCategory | "all">("all");
 
   const filtered = events.filter(
-    (e) => e.day === activeDay && (activeFilter === "all" || e.category === activeFilter)
+    (e) => e.day === activeDay && (activeFilter === "all" || e.categories.includes(activeFilter))
   );
 
   return (
@@ -232,20 +232,25 @@ export function GradCalendar() {
             </p>
           )}
           {filtered.map((event) => {
-            const cfg = categoryConfig[event.category];
-            const Icon = cfg.icon;
+            const firstCfg = categoryConfig[event.categories[0]];
             return (
               <div
                 key={event.id}
-                className={`bg-card rounded-xl border-l-4 ${cfg.border} border border-border p-5 transition-shadow hover:shadow-md`}
+                className={`bg-card rounded-xl border-l-4 ${firstCfg.border} border border-border p-5 transition-shadow hover:shadow-md`}
               >
                 <div className="flex items-start justify-between gap-4 flex-wrap">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <span className={`inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded-full ${cfg.pill}`} style={{ fontFamily: "'Nunito', sans-serif" }}>
-                        <Icon size={11} />
-                        {cfg.label}
-                      </span>
+                      {event.categories.map((cat) => {
+                        const cfg = categoryConfig[cat];
+                        const Icon = cfg.icon;
+                        return (
+                          <span key={cat} className={`inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded-full ${cfg.pill}`} style={{ fontFamily: "'Nunito', sans-serif" }}>
+                            <Icon size={11} />
+                            {cfg.label}
+                          </span>
+                        );
+                      })}
                     </div>
                     <h3 className="text-foreground mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
                       {event.title}

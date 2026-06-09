@@ -22,21 +22,6 @@ export default function App() {
         }}
       />
 
-      {/* Nav */}
-      <nav className="relative z-10 flex items-center justify-between px-8 py-5 border-b border-border bg-background/80 backdrop-blur-sm sticky top-0">
-        <div className="flex items-center gap-2">
-          <GraduationCap size={20} className="text-accent" strokeWidth={1.5} />
-          <span className="text-sm tracking-widest uppercase text-muted-foreground" style={{ letterSpacing: "0.18em" }}>
-            Class of 2026
-          </span>
-        </div>
-        <div className="flex items-center gap-6 text-sm text-muted-foreground">
-          <a href="#bio" className="hover:text-foreground transition-colors cursor-pointer">About</a>
-          <a href="#schedule" className="hover:text-foreground transition-colors cursor-pointer">Schedule</a>
-          <a href="#rsvp" className="hover:text-foreground transition-colors cursor-pointer">RSVP</a>
-        </div>
-      </nav>
-
       {/* Hero — Bio + Photo */}
       <section id="bio" className="relative z-10 px-6 py-24 md:py-32">
         <div className="max-w-5xl mx-auto">
@@ -120,7 +105,7 @@ export default function App() {
                   className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-card border border-border rounded-full px-4 py-1.5 shadow-md whitespace-nowrap text-xs text-muted-foreground"
                   style={{ fontFamily: "'Nunito', sans-serif" }}
                 >
-                  🎓 June 14, 2026
+                  🎓 June 13, 2026
                 </div>
               </div>
             </div>
