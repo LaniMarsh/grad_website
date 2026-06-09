@@ -148,23 +148,15 @@ export default function App() {
             Will you be joining us?
           </h2>
           <p className="text-muted-foreground mb-8 leading-relaxed" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
-            Please RSVP by June 10th so I can make sure there's a seat for you at the family dinner.
-            Text or email works — I'm not picky.
+            Please let me know which events you'll be attending so we can plan accordingly!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="sms:+15551234567"
+              href="sms:+18588694360"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm transition-all hover:opacity-90 active:scale-95 cursor-pointer"
               style={{ fontFamily: "'Nunito', sans-serif" }}
             >
               Send a Text
-            </a>
-            <a
-              href="mailto:jordan@example.com"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-card border border-border text-foreground text-sm transition-all hover:bg-muted cursor-pointer"
-              style={{ fontFamily: "'Nunito', sans-serif" }}
-            >
-              Send an Email
             </a>
           </div>
         </div>

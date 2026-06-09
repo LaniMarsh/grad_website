@@ -19,7 +19,7 @@ const events: GradEvent[] = [
     id: "1",
     title: "Olive Oil Tasting",
     day: "Friday",
-    time: "TBD",
+    time: "11:00 AM",
     location: "Kiler Ridge Olive Farm",
     duration: "2 hr",
     categories: ["optional", "family"],
@@ -33,7 +33,7 @@ const events: GradEvent[] = [
     location: "Etto Pasta @ Tin City",
     duration: "2.5 hrs",
     categories: ["optional", "family"],
-    description: "Dinner reservation at Etto Pasta in Tin City",
+    description: "Dinner reservation is at 7:45 PM at Etto Pasta in Tin City. We plan to get there a bit earlier so we can explore the other shops there.",
   },
   {
     id: "3",
