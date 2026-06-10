@@ -26,6 +26,16 @@ const events: GradEvent[] = [
     description: "This is Lani's favorite coffee shop because of their Mexican Mocha",
   },
   {
+    id: "10",
+    title: "Get free stuff",
+    day: "Friday",
+    time: "10:00 AM",
+    location: "Cal Poly Dorms",
+    duration: "1 hr",
+    categories: ["optional"],
+    description: "The freshman and sophomores get rid of clothes and stuff when moving out so we can go rummage for free clothes!",
+  },
+  {
     id: "1",
     title: "Olive Oil Tasting",
     day: "Friday",

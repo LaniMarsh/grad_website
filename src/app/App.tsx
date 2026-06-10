@@ -273,7 +273,7 @@ export default function App() {
                   What to bring
                 </h3>
                 <p className="text-muted-foreground mb-2" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
-                  Water, sun protection, and a small bag for essentials.
+                  Water, sun protection, and a clear bag for essentials.
                 </p>
                 <p className="text-muted-foreground" style={{ fontFamily: "'Nunito', sans-serif", fontWeight: 300 }}>
                   Reusable water bottles are permitted but must be emptied before entering the stadium. Unopened, factory-sealed water bottles are also allowed.
